@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; /* Light Blue background */
+    text-align: center;
+    margin: 0;
+    padding: 50px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+h1 { color: #006064; }
