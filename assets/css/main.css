@@ -108,7 +108,7 @@ header {
 .logo {
   width: 180px;           
   height: auto;
-  border-radius: 50%;     /
+  border-radius: 50%;     
   border: 4px solid rgba(255, 255, 255, 0.3); 
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);    
   background-color: #fff; 
@@ -267,12 +267,49 @@ button:active,
   background-color: #dff4df;
 }
 
+.main-layout {
+  display: flex;
+  gap: var(--space-5);
+  margin: var(--space-5) 0;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
 .content-panel {
   background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: var(--space-5);
   box-shadow: var(--shadow);
+}
+
+/* Dashboard Styles */
+.dashboard-layout {
+  display: flex;
+  gap: var(--space-5);
+  margin: var(--space-5) 0;
+}
+
+.dashboard-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.dashboard-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+}
+
+.dashboard-section h3 {
+  color: var(--green-800);
+  margin-bottom: var(--space-3);
 }
 
 .cards {
@@ -354,6 +391,138 @@ button:active,
   color: #496a49;
 }
 
+/* Login Form Styles */
+.toggle-buttons {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.toggle-buttons button {
+  flex: 1;
+  padding: var(--space-3);
+  border: 2px solid var(--green-600);
+  background: transparent;
+  color: var(--green-700);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.toggle-buttons button.active {
+  background: var(--green-600);
+  color: #fff;
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  box-shadow: var(--shadow);
+  margin-bottom: var(--space-4);
+}
+
+.form-container h3 {
+  color: var(--green-800);
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+.form-container form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.form-container label {
+  font-weight: 600;
+  color: var(--green-900);
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container input[type="email"] {
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  transition: border-color 0.15s ease;
+}
+
+.form-container input:focus {
+  border-color: var(--green-500);
+  outline: none;
+}
+
+.form-container fieldset {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  margin: var(--space-2) 0;
+}
+
+.form-container fieldset legend {
+  font-weight: 600;
+  color: var(--green-900);
+  padding: 0 var(--space-2);
+}
+
+.form-container fieldset label {
+  display: block;
+  margin: var(--space-2) 0;
+  font-weight: normal;
+}
+
+.form-container button[type="submit"] {
+  background: linear-gradient(135deg, var(--green-600), var(--green-500));
+  color: #fff;
+  border: none;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: var(--space-2);
+}
+
+.form-container button[type="submit"]:hover {
+  background: linear-gradient(135deg, var(--green-700), var(--green-600));
+  transform: translateY(-1px);
+}
+
+/* Centralized Login Page */
+.login-page {
+  min-height: calc(100vh - 120px); /* Account for header and footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  background: linear-gradient(135deg, var(--green-50), rgba(255, 255, 255, 0.9));
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 480px;
+  width: 100%;
+}
+
+.login-container h2 {
+  text-align: center;
+  color: var(--green-800);
+  margin-bottom: var(--space-5);
+  font-size: 1.8rem;
+}
+
 .mt-0 { margin-top: 0 !important; }
 .mt-1 { margin-top: var(--space-2) !important; }
 .mt-2 { margin-top: var(--space-3) !important; }
@@ -399,6 +568,19 @@ button:active,
     grid-template-columns: 1fr;
   }
 
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .login-page {
+    min-height: calc(100vh - 140px);
+    padding: var(--space-3);
+  }
+
+  .login-container {
+    padding: var(--space-4);
+  }
+
   .cards .card { grid-column: span 12; }
 
   .content {
@@ -411,6 +593,19 @@ button:active,
   .site-title { font-size: 1.25rem; }
   .logo { height: 40px; }
   .hero { padding: var(--space-5); }
+
+  .login-page {
+    padding: var(--space-2);
+  }
+
+  .login-container {
+    padding: var(--space-3);
+    margin: var(--space-2);
+  }
+
+  .login-container h2 {
+    font-size: 1.5rem;
+  }
 }
 
 @media print {
