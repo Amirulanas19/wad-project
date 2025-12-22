@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log-In | FitFlow</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="assets/img/FitFlowLogo.jpeg" alt="Logo" class="logo"></a>
+    <h1>FitFlow</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="login.html">Log-In</a>
+    </nav>
+  </header>
+
+  <main class="login-page">
+    <div class="login-container">
+      <h2>Log-In/Sign Up to FitFlow</h2>
+      <div class="toggle-buttons">
+        <button id="login-btn" class="active">Log-In</button>
+        <button id="register-btn">Sign-Up</button>
+      </div>
+      <div id="login-form" class="form-container">
+        <h3>Log-In</h3>
+        <form action="login.php" method="post">
+          <fieldset>
+            <legend>Login Type</legend>
+            <label>
+              <input type="radio" name="role" value="member" required> Member
+            </label>
+            <label>
+              <input type="radio" name="role" value="admin" required> Admin
+            </label>
+          </fieldset>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+          <button type="submit">Log-In</button>
+        </form>
+        <p><strong>Demo Credentials:</strong></p>
+        <ul>
+          <li><strong>Member:</strong> Username: user1 or user2, Password: pass1 or pass2</li>
+          <li><strong>Admin:</strong> Username: admin, Password: admin123</li>
+        </ul>
+      </div>
+    <div id="register-form" class="form-container" style="display:none;">
+      <h3>Sign-Up</h3>
+      <form action="login.php" method="post">
+        <input type="hidden" name="action" value="register">
+        <label for="reg_username">Username:</label>
+        <input type="text" id="reg_username" name="username" required>
+        <label for="reg_password">Password:</label>
+        <input type="password" id="reg_password" name="password" required>
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
+        <fieldset>
+          <legend>Role</legend>
+          <label>
+            <input type="radio" name="role" value="member" required> Member
+          </label>
+          <label>
+            <input type="radio" name="role" value="admin" required> Admin
+          </label>
+        </fieldset>
+        <button type="submit">Sign-Up</button>
+      </form>
+      <p><strong>Demo Sign-Up:</strong> Create a new account with any unique username, password, and select your role (Member or Admin).</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 FitFlow</p>
+  </footer>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('error')) {
+      const error = urlParams.get('error');
+      let message = '';
+      if (error === 'password_mismatch') message = 'Passwords do not match';
+      else if (error === 'username_exists') message = 'Username already exists';
+      else if (error === 'invalid_credentials') message = 'Invalid username or password';
+      if (message) alert(message);
+    }
+
+    // Toggle functionality
+    document.getElementById('login-btn').addEventListener('click', function() {
+      document.getElementById('login-form').style.display = 'block';
+      document.getElementById('register-form').style.display = 'none';
+      this.classList.add('active');
+      document.getElementById('register-btn').classList.remove('active');
+    });
+
+    document.getElementById('register-btn').addEventListener('click', function() {
+      document.getElementById('register-form').style.display = 'block';
+      document.getElementById('login-form').style.display = 'none';
+      this.classList.add('active');
+      document.getElementById('login-btn').classList.remove('active');
+    });
+
+    // Check hash on load
+    if (window.location.hash === '#register') {
+      document.getElementById('register-btn').click();
+    }
+  </script>
+</body>
+</html>
 
