@@ -522,6 +522,7 @@ button:active,
   font-weight: 600;
   transition: all 0.3s ease;
   margin-top: var(--space-2);
+  margin-bottom: var(--space-4); 
 }
 
 .form-container button[type="submit"]:hover {
@@ -536,8 +537,9 @@ button:active,
   align-items: center;
   justify-content: center;
   padding: var(--space-5);
-  background: #f4f5f7;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #e8f5e9 100%);
 }
+
 
 .login-container {
   background: rgba(255, 255, 255, 0.95);
@@ -560,7 +562,9 @@ button:active,
 .login-container button[type="submit"] {
   width: 100%;
   margin-top: var(--space-4);
+  margin-bottom: var(--space-4); 
 }
+
 
 .mt-0 { margin-top: 0 !important; }
 .mt-1 { margin-top: var(--space-2) !important; }
@@ -833,3 +837,4 @@ button:hover, .btn:hover {
   color: #666;
   border: 2px dashed var(--border);
 }
+
